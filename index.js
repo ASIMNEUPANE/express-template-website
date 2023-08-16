@@ -1,12 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.get("/:name/:lastName", (req,res)=>{
-    console.log({req})
+app.get("/:name/:lastName", (req, res) => {
+  console.log({ req });
+  console.log({ query: req.query });
 
-    const {name , lastName} = req.params;
+  const { name, lastName } = req.params;
+  const { address, number } = req.query;
 
-    res.send(`your input is ${name} ${lastName}`)
+  res.send(`my name is ${name} ${lastName} and data of user is ${address} ${number}`);
+ 
 });
 
 app.listen(3001);
