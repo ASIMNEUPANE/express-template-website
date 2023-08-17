@@ -1,22 +1,24 @@
 const router = require('express').Router();
+const qrcode = require('../modules/qrcode')
+const
 
-// router.get('/',(req,res)=>{
-    // res.send("get response")
-// })
-router.get('/:first/:last',(req,res)=>{
-    const{first , last} = req.params;
-    console.log(first + last)
-    res.send("get response")
+router.get('/qr', async (req,res)=>{
+    const {qr} = req.query;
+    const qrdata = await qrcode.toDataURL(qr)
+    res.send(`<img src="${qrdata}"><img>`);
+
+
 })
-router.post('/post',(req,res)=>{
-    res.send("get posts")
+
+router.get('/cc',async(req,res)=>{
+    
+    const toConvert = new cc();
+
+
+    res.send(currencyConverter)
+
 })
-router.put('/post',(req,res)=>{
-    res.send("get put")
-})
-router.delete('/post',(req,res)=>{
-    res.send("get delete")
-})
+
 
 
 
