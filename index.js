@@ -1,17 +1,9 @@
 const express = require("express");
+const router = require("./routes/index");
 const app = express();
 
-app.get("/:name/:lastName", (req, res) => {
-  console.log({ req });
-  console.log({ query: req.query });
+app.use("/", router);
 
-  const { name, lastName } = req.params;
-  const { address, number } = req.query;
-
-  res.send(`my name is ${name} ${lastName} and data of user is ${address} ${number}`);
- 
-});
-
-app.listen(3001);
+app.listen(3002);
 
 console.log("app is running on port 3001");
