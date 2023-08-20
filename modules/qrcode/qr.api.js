@@ -2,7 +2,7 @@ const router = require('express').Router();
 const qrController =require('./qr.controller')
 
 
- router.post("/", async (req, res) => {
+ router.post("/", async (req, res,next) => {
       
     
       try{
@@ -14,8 +14,8 @@ const qrController =require('./qr.controller')
     
       }
     
-      catch(err){
-        res.send("error found")
+      catch(e){
+       next(e);
       }
     
     });

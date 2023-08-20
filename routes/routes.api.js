@@ -5,6 +5,9 @@ router.get('/', (req,res)=>{
 res.send('api is working')
 })
 
+
+
+
 router.use('/qr', qrRouter);
 
 module.exports = router;
