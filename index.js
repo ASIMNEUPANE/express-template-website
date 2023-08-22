@@ -3,18 +3,20 @@ const router = require("./routes/index");
 const app = express();
 
 app.use(express.json());
+
+app.set("view engine", "ejs");
+app.set("views", "./views");
+app.use(express.static("public"));
+
 app.use("/", router);
 
-
-app.use((err,req,res,next)=>{
-
-err = 
-process.env.NODE_ENV == "production"
-? "something went wrong ...."
-: err.toString();
-res.status(500).send(err);
+app.use((err, req, res, next) => {
+  err =
+    process.env.NODE_ENV == "production"
+      ? "something went wrong ...."
+      : err.toString();
+  res.status(500).send(err);
 });
-
 
 app.listen(3008);
 

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 router.get('/', (req,res)=>{
-res.send("Ui is working")
+res.render("index", {data: "helloworld"})
 })
 
 
